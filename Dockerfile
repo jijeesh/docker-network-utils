@@ -7,7 +7,5 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 COPY Dockerfile /Dockerfile
-LABEL org.label-schema.docker.dockerfile="/Dockerfile" \
-      org.label-schema.vcs-type="Git" \
-      org.label-schema.vcs-url="https://github.com/amouat/network-utils-container"
+
      

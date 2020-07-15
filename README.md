@@ -12,7 +12,7 @@ Simple container based on Debian with a few network utilities installed, namely:
   - nmap
   - ab (ab -n 100 -c 10 -g out.data https://www.apache.org/)
 ```
-kubectl run -it -n tools  network-utils --rm --image=jijeesh/network-utils  bash
+kubectl run -it -n tools  network-utils --rm --image=jijeesh/knife  bash
 or
 kubectl -n tools apply -f pod.yaml
 ```

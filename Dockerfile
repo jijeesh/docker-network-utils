@@ -1,8 +1,16 @@
 FROM ubuntu:18.04
 
 MAINTAINER Jijeesh
+
+RUN apt-get update && \
+    apt-get install --no-install-recommends -y \
+        software-properties-common \
+        gnupg \
+        wget
+RUN wget -qO - https://bintray.com/user/downloadSubjectPublicKey?username=bintray | apt-key add -
+
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 379CE192D401AB61
-RUN echo "deb https://dl.bintray.com/loadimpact/deb stable main" | sudo tee -a /etc/apt/sources.list
+RUN echo "deb https://dl.bintray.com/loadimpact/deb stable main" | tee -a /etc/apt/sources.list
 
 RUN apt-get update && \
     apt-get install --no-install-recommends -y \
@@ -43,8 +51,7 @@ RUN apt-get update && \
         ngrep \
         vim \
         nmap \
-        apache2-utils \
-        wget && \
+        apache2-utils && \
     rm -rf /var/lib/apt/lists/* && \
     mv /usr/sbin/tcpdump /usr/bin/tcpdump && \
     mv /usr/sbin/traceroute /usr/bin/traceroute 
